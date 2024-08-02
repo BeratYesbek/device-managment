@@ -10,6 +10,7 @@ import com.beratyesbek.oneglobal.modal.mapper.DeviceMapper;
 import com.beratyesbek.oneglobal.repository.DeviceRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
@@ -23,6 +24,7 @@ public class DeviceService {
     private final BrandService brandService;
     private final DeviceMapper deviceMapper;
 
+    @Transactional(propagation = Propagation.REQUIRED)
     public DeviceReadDTO create(DeviceCreateDTO deviceCreateDTO) {
         Brand brand = brandService.findById(deviceCreateDTO.getBrandId());
         Device device = Device.builder()
@@ -33,6 +35,7 @@ public class DeviceService {
         return deviceMapper.mapTo(repository.save(device));
     }
 
+    @Transactional(propagation = Propagation.REQUIRED)
     public DeviceReadDTO update(String id, DeviceUpdateDTO updateDTO) {
         Device device = repository.findById(id)
                 .orElseThrow(() -> new OneGlobalException("Device not found"));
@@ -57,6 +60,7 @@ public class DeviceService {
         return deviceMapper.mapTo(repository.searchByNameOrBrand(search));
     }
 
+    @Transactional(propagation = Propagation.REQUIRED)
     public void delete(String id) {
         repository.deleteById(id);
     }
