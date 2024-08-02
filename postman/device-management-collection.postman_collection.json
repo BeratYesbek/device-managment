@@ -1,0 +1,465 @@
+{
+	"info": {
+		"_postman_id": "54b5ce3a-8f16-4fd8-a480-cef27ee33b8c",
+		"name": "device-management-collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16401804",
+		"_collection_link": "https://feanorr.postman.co/workspace/1global-case~a910d748-e31a-4710-af25-77ff8a011c15/collection/16401804-54b5ce3a-8f16-4fd8-a480-cef27ee33b8c?action=share&source=collection_link&creator=16401804"
+	},
+	"item": [
+		{
+			"name": "Device Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"deviceName\":\"global Phone-GL35 Device\",\n    \"brandId\": \"5b2a6953-10e4-47f8-80ae-70f900049e9c\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/device",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"device"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"deviceName\":\"1global Phone-GL34 Device\",\n    \"brandId\": \"5b2a6953-10e4-47f8-80ae-70f900049e9c\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/device",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"device"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 02 Aug 2024 08:58:59 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"806dacb8-22ee-4f5c-a180-499f39b5e77f\",\n    \"deviceName\": \"global Phone-GL34 Device\",\n    \"brand\": {\n        \"id\": \"5b2a6953-10e4-47f8-80ae-70f900049e9c\",\n        \"name\": \"APPLE\"\n    },\n    \"createdAt\": \"2024-08-02T11:58:59.42808+03:00\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Device Get By ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/device/806dacb8-22ee-4f5c-a180-499f39b5e77f",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"device",
+						"806dacb8-22ee-4f5c-a180-499f39b5e77f"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/device/806dacb8-22ee-4f5c-a180-499f39b5e77f",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"device",
+								"806dacb8-22ee-4f5c-a180-499f39b5e77f"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 02 Aug 2024 09:01:13 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"806dacb8-22ee-4f5c-a180-499f39b5e77f\",\n    \"deviceName\": \"global Phone-GL34 Device\",\n    \"brand\": {\n        \"id\": \"5b2a6953-10e4-47f8-80ae-70f900049e9c\",\n        \"name\": \"APPLE\"\n    },\n    \"createdAt\": \"2024-08-02T08:58:59.42808Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Device Get All",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/device",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"device"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/device",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"device"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 02 Aug 2024 09:05:53 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"806dacb8-22ee-4f5c-a180-499f39b5e77f\",\n        \"deviceName\": \"global Phone-GL34 Device\",\n        \"brand\": {\n            \"id\": \"5b2a6953-10e4-47f8-80ae-70f900049e9c\",\n            \"name\": \"APPLE\"\n        },\n        \"createdAt\": \"2024-08-02T08:58:59.42808Z\"\n    },\n    {\n        \"id\": \"f5331fbc-e66c-4221-89ce-fb0959f51825\",\n        \"deviceName\": \"1global Phone-GL35 Device\",\n        \"brand\": {\n            \"id\": \"5b2a6953-10e4-47f8-80ae-70f900049e9c\",\n            \"name\": \"APPLE\"\n        },\n        \"createdAt\": \"2024-08-02T09:05:49.833531Z\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Device Search",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/device/search?search=GL68",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"device",
+						"search"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "GL68"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/device/search?search=GL68",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"device",
+								"search"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "GL68"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 02 Aug 2024 09:25:48 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"806dacb8-22ee-4f5c-a180-499f39b5e77f\",\n        \"deviceName\": \"global Phone-GL68 Device\",\n        \"brand\": {\n            \"id\": \"526b15fa-8662-4c51-a9a6-3f3371c02513\",\n            \"name\": \"DELL\"\n        },\n        \"createdAt\": \"2024-08-02T08:58:59.42808Z\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Device Update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"deviceName\":\"global Phone-GL68 Device\",\n    \"brandId\":\"526b15fa-8662-4c51-a9a6-3f3371c02513\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/device/806dacb8-22ee-4f5c-a180-499f39b5e77f",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"device",
+						"806dacb8-22ee-4f5c-a180-499f39b5e77f"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Response",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"deviceName\":\"1global Phone-GL68 Device\",\n    \"brandId\":\"526b15fa-8662-4c51-a9a6-3f3371c02513\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/device/806dacb8-22ee-4f5c-a180-499f39b5e77f",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"device",
+								"806dacb8-22ee-4f5c-a180-499f39b5e77f"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 02 Aug 2024 09:25:29 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"806dacb8-22ee-4f5c-a180-499f39b5e77f\",\n    \"deviceName\": \"1global Phone-GL68 Device\",\n    \"brand\": {\n        \"id\": \"526b15fa-8662-4c51-a9a6-3f3371c02513\",\n        \"name\": \"DELL\"\n    },\n    \"createdAt\": \"2024-08-02T08:58:59.42808Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Device Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/device/806dacb8-22ee-4f5c-a180-499f39b5e77f",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"device",
+						"806dacb8-22ee-4f5c-a180-499f39b5e77f"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Response",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/device/806dacb8-22ee-4f5c-a180-499f39b5e77f",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"device",
+								"806dacb8-22ee-4f5c-a180-499f39b5e77f"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 02 Aug 2024 09:29:03 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	]
+}
