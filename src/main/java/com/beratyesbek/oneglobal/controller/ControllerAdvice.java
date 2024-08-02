@@ -15,10 +15,8 @@ import java.util.List;
 
 @Slf4j
 @RestControllerAdvice
-@RequiredArgsConstructor
 public class ControllerAdvice {
     @ExceptionHandler(OneGlobalException.class)
-
     public ResponseEntity<ErrorDTO> handle(OneGlobalException exception) {
         log.error(exception.getMessage(), exception);
         return ResponseEntity.badRequest().body(ErrorDTO.builder()

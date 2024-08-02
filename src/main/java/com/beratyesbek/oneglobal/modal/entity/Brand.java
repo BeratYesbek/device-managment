@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 
 import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.SQLRestriction;
 
 import java.util.List;
 
@@ -18,6 +19,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
+@SQLRestriction(value = "DELETED is false")
 @SQLDelete(sql = "UPDATE DEVICE SET DELETED = TRUE WHERE ID=? and VERSION=?")
 public class Brand extends BaseEntity{
 

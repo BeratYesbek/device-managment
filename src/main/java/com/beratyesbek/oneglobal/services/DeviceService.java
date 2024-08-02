@@ -57,7 +57,7 @@ public class DeviceService {
     }
 
     public List<DeviceReadDTO> searchByNameOrBrand(String search) {
-        return deviceMapper.mapTo(repository.searchByNameOrBrand(search));
+        return deviceMapper.mapTo(repository.search(search));
     }
 
     @Transactional(propagation = Propagation.REQUIRED)

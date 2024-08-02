@@ -11,6 +11,7 @@ import lombok.EqualsAndHashCode;
 
 
 import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.SQLRestriction;
 
 @Data
 @Entity
@@ -18,6 +19,7 @@ import org.hibernate.annotations.SQLDelete;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
+@SQLRestriction(value = "DELETED is false")
 @SQLDelete(sql = "UPDATE DEVICE SET DELETED = TRUE WHERE ID=? and VERSION=?")
 public class Device extends BaseEntity {
 
