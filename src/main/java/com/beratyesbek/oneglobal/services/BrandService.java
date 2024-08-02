@@ -1,5 +1,6 @@
 package com.beratyesbek.oneglobal.services;
 
+import com.beratyesbek.oneglobal.exception.OneGlobalException;
 import com.beratyesbek.oneglobal.modal.entity.Brand;
 import com.beratyesbek.oneglobal.repository.BrandRepository;
 import lombok.RequiredArgsConstructor;
@@ -12,7 +13,7 @@ public class BrandService {
 
     public Brand findById(String id) {
         return repository.findById(id).orElseThrow(
-                () -> new RuntimeException("Brand not found with id: " + id)
+                () -> new OneGlobalException("Brand not found with id: " + id)
         );
     }
 }

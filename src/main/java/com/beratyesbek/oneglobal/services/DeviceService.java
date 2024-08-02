@@ -1,5 +1,6 @@
 package com.beratyesbek.oneglobal.services;
 
+import com.beratyesbek.oneglobal.exception.OneGlobalException;
 import com.beratyesbek.oneglobal.modal.dto.DeviceCreateDTO;
 import com.beratyesbek.oneglobal.modal.dto.DeviceReadDTO;
 import com.beratyesbek.oneglobal.modal.dto.DeviceUpdateDTO;
@@ -34,7 +35,7 @@ public class DeviceService {
 
     public DeviceReadDTO update(String id, DeviceUpdateDTO updateDTO) {
         Device device = repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Device not found"));
+                .orElseThrow(() -> new OneGlobalException("Device not found"));
         deviceMapper.mapTo(updateDTO, device);
         if (StringUtils.hasText(updateDTO.getBrandId())) {
             device.setBrand(brandService.findById(updateDTO.getBrandId()));
@@ -45,7 +46,7 @@ public class DeviceService {
     public DeviceReadDTO getById(String id) {
         return repository.findById(id)
                 .map(deviceMapper::mapTo)
-                .orElseThrow(() -> new RuntimeException("Device not found"));
+                .orElseThrow(() -> new OneGlobalException("Device not found"));
     }
 
     public List<DeviceReadDTO> getAll() {
