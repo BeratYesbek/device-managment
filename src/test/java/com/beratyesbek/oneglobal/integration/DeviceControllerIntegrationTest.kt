@@ -38,7 +38,6 @@ open class DeviceControllerIntegrationTest {
 
     @BeforeEach
     fun setUp() {
-        deviceRepository.deleteAll()
         brand = Brand.builder().name("Brand A").build()
         brandRepository.save(brand)
     }
