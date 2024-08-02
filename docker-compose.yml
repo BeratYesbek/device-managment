@@ -1,6 +1,27 @@
 version: '3.8'
 
 services:
+  device_api:
+    image: device_api
+    container_name: device_api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - device_postgres
+    environment:
+        - SPRING_DATASOURCE_URL=jdbc:postgresql://device_postgres:5432/deviceDb
+        - SPRING_DATASOURCE_USERNAME=user
+        - SPRING_DATASOURCE_PASSWORD=user123
+        - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+        - SPRING_JPA_HIBERNATE_DIALECT=org.hibernate.dialect.PostgreSQLDialect
+        - SPRING_FLYWAY_URL=jdbc:postgresql://device_postgres:5432/deviceDb
+        - SPRING_FLYWAY_USER=user
+        - SPRING_FLYWAY_PASSWORD=user123
+        - SPRING_FLYWAY_BASELINE_ON_MIGRATE=true
+    ports:
+        - "8080:8080"
+
   device_postgres:
     image: postgres
     container_name: device_postgres
