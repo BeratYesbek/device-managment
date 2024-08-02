@@ -2,16 +2,16 @@ package com.beratyesbek.oneglobal.controller;
 
 import com.beratyesbek.oneglobal.modal.dto.DeviceCreateDTO;
 import com.beratyesbek.oneglobal.modal.dto.DeviceReadDTO;
+import com.beratyesbek.oneglobal.modal.dto.DeviceUpdateDTO;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.beratyesbek.oneglobal.services.DeviceService;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -24,4 +24,32 @@ public class DeviceController {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(deviceService.create(createDTO));
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<DeviceReadDTO> getById(@PathVariable String id) {
+        return ResponseEntity.ok(deviceService.getById(id));
+    }
+
+    @GetMapping
+    public ResponseEntity<List<DeviceReadDTO>> getAll() {
+        return ResponseEntity.ok(deviceService.getAll());
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<DeviceReadDTO>> searchByNameOrBrand(@RequestParam String search) {
+        return ResponseEntity.ok(deviceService.searchByNameOrBrand(search));
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<DeviceReadDTO> update(@PathVariable String id, @RequestBody @Valid DeviceUpdateDTO updateDTO) {
+        return ResponseEntity.ok(deviceService.update(id, updateDTO));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable String id) {
+        deviceService.delete(id);
+        return ResponseEntity.ok().build();
+    }
+
+
 }
